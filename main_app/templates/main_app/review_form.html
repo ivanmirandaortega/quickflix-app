@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if object %}
+		<h1>Edit <span class="teal-text">{{movie.name}}</span></h1>
+	{% else %}
+		<h1>Add Review</h1>
+	{% endif %}
+<!-- Leaving the action blank will use the same url that was used in order to get the form -->
+<form action="" method="POST">
+	{% csrf_token %}
+	<table>
+		Comment:{{ form.comment }}
+		<label>
+			<input type="checkbox" name="recommend">
+			<span>Would Recommend {{ form.recommend }}</span>
+			</label>
+		</table>
+
+	<input type="submit" value="submit!" class="btn" />
+</form>
+{% endblock content %}
+
+

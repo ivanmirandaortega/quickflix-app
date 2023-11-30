@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col">
+   <div class="about">
+      {%if searched%}
+      <h2>You Searched For <span class="white-text">{{ searched }}</span></h2>
+      <table>
+         <thead>
+            <tr>
+               <th>Movie</th>
+               <th>Movie Genre</th>
+               <th>Movie Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               {% for movie in movies %}
+               <td><a href="{% url 'detail' movie.id%}"><img src="{{ movie.image }}" alt=""></a></td>
+               <td>{{ movie.genre }}</td>
+               <td>{{ movie.description }}</td>
+            </tr>
+         </tbody>
+         {% endfor %}
+      </table>
+      {% else %}
+      <h2> What would you like to Watch? </h2>
+      {% endif %}
+      
+      {% if user.is_authenticated %}
+      <!-- <div><a class="waves-effect waves-light btn-large" href="{% url 'logout' %}">Log Out</a></div> -->
+      {% else %}
+      <div><a class="waves-effect waves-light btn-large" href="{% url 'signup' %}">Sign Up</a></div>
+      {% endif %}
+   </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col flex-box">
+    <div class="about">
+        <h1>A quicker way to pick your flick</h1>
+        <p>QuickFlix is an app that brings the best movies of Netflix, Hulu, and Amazon Prime to one place. The user can search through all three libraries simultaneously, cutting their search time in half.</p>
+        {% if user.is_authenticated %}
+        <!-- <div><a class="waves-effect waves-light btn-large" href="{% url 'logout' %}">Log Out</a></div> -->
+        {% else %}
+        <div><a class="waves-effect waves-light btn-large" href="{% url 'signup' %}">Sign Up</a></div>
+        {% endif %}
+        <div class="logos">
+            <img class="img-logo" src="https://quickflix.s3.us-west-1.amazonaws.com/logos/netflix-logo.svg">
+            <img class="img-logo" src="https://quickflix.s3.us-west-1.amazonaws.com/logos/hulu-logo.svg">
+            <img class="img-logo" src="https://quickflix.s3.us-west-1.amazonaws.com/logos/prime-video-logo.svg">
+        </div>
+    </div>
+    <div>
+        <img src="https://quickflix.s3.us-west-1.amazonaws.com/hero-3d-person.png" srcset="https://quickflix.s3.us-west-1.amazonaws.com/hero-3d-person.png 2x">
+    </div>
+</div>
+{% endblock %}
+

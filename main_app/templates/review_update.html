@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Edit review</h1>
+
+<form method="POST">
+	{% csrf_token %}
+	<table>
+        <label>
+        <input type="text" name="comment" id="edit-input">
+		{{ review_form.comment }}
+    </label>
+    <label>
+			<input type="checkbox" name="recommend">
+			<span>Would Recommend {{form.recommend }}</span>
+			</label>
+	</table>
+
+	<input type="submit" value="Update" class="btn" />
+</form>
+    {% endblock %}

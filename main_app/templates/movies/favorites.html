@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>My Favorites</h1>
+
+<div class="row">
+    {% for movie in new %}
+        <div class="col s3 m3 13">
+            <a href="{% url 'detail' movie.id%}">
+                <img src="{{ movie.image }}" alt="" class="responsive-img">
+            </a> 
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

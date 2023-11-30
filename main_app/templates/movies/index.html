@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Movie List</h1>
+
+<div class="movies-grid">
+{% for movie in movies %}
+<div class="movie">
+    <a href="{% url 'detail' movie.id%}">
+        <img src="{{ movie.image }}" alt="" class="responsive-img">
+    </a>
+</div>
+    {% endfor %}
+</div>
+
+<!-- <div class="row">
+{% for movie in movies %}
+    <div class="col s3 m3 13">
+        <a href="{% url 'detail' movie.id%}">
+            <img src="{{ movie.image }}" alt="" class="responsive-img">
+        </a>
+    </div>
+    {% endfor %}
+</div> -->
+
+{% endblock %}
